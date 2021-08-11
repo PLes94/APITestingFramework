@@ -1,5 +1,6 @@
 package my.testing.packagey.stepDefinitions.users;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
@@ -19,22 +20,18 @@ public class GetUserListDefinitions extends StepDefinitions {
         MatcherAssert.assertThat(RestAssured.config(), Matchers.instanceOf(RestAssuredConfig.class));
     }
 
-    @When("I check if page number in response is correct")
-    public void checkPageNumberInResponse() {
-        int pageNumber = 2;
-        testContext.setResponse(RestAssured.get("https://reqres.in/api/users?page=" + pageNumber));
-        Assertions.assertEquals(testContext.getResponse().jsonPath().getInt("page"), pageNumber, "Page number is incorrect");
-    }
-
-    @When("I check if page number in response is correct using methods class")
-    public void checkPageNumberInResponseUsingMethodsClass() {
-        int pageNumber = 2;
+    @When("I send request to get list of users on page number = {}")
+    public void iSendRequestToGetListOfUsersOnPageNumberEqualTo(int pageNumber) {
         testContext.setResponse(ReqresMethods.getListOfUsers(pageNumber));
-//        Assertions.assertEquals(testContext.getResponse().jsonPath().getInt("page"), pageNumber, "Page number is incorrect");
     }
 
     @Then("I should get {} in response")
     public void iShouldGetGivenStatusCodeInResponse(int statusCode) {
         Assertions.assertEquals(statusCode, testContext.getResponse().getStatusCode());
+    }
+
+    @And("I check if page number in response is equal to {}")
+    public void iCheckIfPageNumberInResponseIsEqualTo(int pageNumber) {
+        Assertions.assertEquals(testContext.getResponse().jsonPath().getInt("page"), pageNumber, "Page number is incorrect");
     }
 }
