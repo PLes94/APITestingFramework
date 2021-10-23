@@ -6,12 +6,13 @@ import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.config.RestAssuredConfig;
 import my.testing.packagey.restMethods.ReqresMethods;
+import my.testing.packagey.stepDefinitions.StepDefinitions;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import my.testing.packagey.stepDefinitions.StepDefinitions;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GetUserListDefinitions extends StepDefinitions {
     @Test
@@ -27,11 +28,11 @@ public class GetUserListDefinitions extends StepDefinitions {
 
     @Then("I should get {} in response")
     public void iShouldGetGivenStatusCodeInResponse(int statusCode) {
-        Assertions.assertEquals(statusCode, testContext.getResponse().getStatusCode());
+        assertEquals(statusCode, testContext.getResponse().getStatusCode());
     }
 
     @And("I check if page number in response is equal to {}")
     public void iCheckIfPageNumberInResponseIsEqualTo(int pageNumber) {
-        Assertions.assertEquals(testContext.getResponse().jsonPath().getInt("page"), pageNumber, "Page number is incorrect");
+        assertEquals(testContext.getResponse().jsonPath().getInt("page"), pageNumber, "Page number is incorrect");
     }
 }
