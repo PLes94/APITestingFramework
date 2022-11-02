@@ -5,7 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.config.RestAssuredConfig;
-import my.testing.packagey.restMethods.ReqresMethods;
+import my.testing.packagey.apimethods.ReqresMethods;
 import my.testing.packagey.stepDefinitions.StepDefinitions;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GetUserListDefinitions extends StepDefinitions {
+
     @Test
     @DisplayName("My first test")
     public void myFirstTest() {
