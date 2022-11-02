@@ -1,11 +1,14 @@
-package my.testing.packagey.restMethods;
+package my.testing.packagey.apimethods;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ReqresMethods {
 
-    private static final String basicUrl = "https://reqres.in/api/";
+    private static final String BASIC_URL = "https://reqres.in/api/";
 
     public static Response getListOfUsers(int pageNumber) {
         return RestAssured.given()
@@ -14,7 +17,7 @@ public class ReqresMethods {
                 .contentType("application/json")
                 .when()
                 .relaxedHTTPSValidation()
-                .get(basicUrl + "users")
+                .get(BASIC_URL + "users")
                 .then()
                 .log().all()
                 .extract().response();
