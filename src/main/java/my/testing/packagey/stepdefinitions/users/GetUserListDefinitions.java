@@ -1,11 +1,11 @@
-package my.testing.packagey.stepDefinitions.users;
+package my.testing.packagey.stepdefinitions.users;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.config.RestAssuredConfig;
 import my.testing.packagey.apimethods.ReqresUsersMethods;
-import my.testing.packagey.stepDefinitions.StepDefinitions;
+import my.testing.packagey.stepdefinitions.StepDefinitions;
 import my.testing.packagey.testdata.UsersTestData;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;

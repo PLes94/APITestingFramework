@@ -1,7 +1,7 @@
-package my.testing.packagey.stepDefinitions.commons;
+package my.testing.packagey.stepdefinitions.commons;
 
 import io.cucumber.java.en.Then;
-import my.testing.packagey.stepDefinitions.StepDefinitions;
+import my.testing.packagey.stepdefinitions.StepDefinitions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

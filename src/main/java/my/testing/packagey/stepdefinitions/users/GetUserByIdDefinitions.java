@@ -1,9 +1,9 @@
-package my.testing.packagey.stepDefinitions.users;
+package my.testing.packagey.stepdefinitions.users;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.When;
 import my.testing.packagey.apimethods.ReqresUsersMethods;
-import my.testing.packagey.stepDefinitions.StepDefinitions;
+import my.testing.packagey.stepdefinitions.StepDefinitions;
 import my.testing.packagey.testdata.UsersTestData;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,4 +1,4 @@
-package my.testing.packagey.stepDefinitions;
+package my.testing.packagey.stepdefinitions;
 
 import my.testing.packagey.helper.TestContext;
 import net.datafaker.Faker;
