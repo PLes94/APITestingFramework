@@ -22,4 +22,16 @@ public class ReqresMethods {
                 .log().all()
                 .extract().response();
     }
+
+    public static Response getUserById(int userId) {
+        return RestAssured.given()
+                .log().all()
+                .contentType("application/json")
+                .when()
+                .relaxedHTTPSValidation()
+                .get(BASIC_URL + userId)
+                .then()
+                .log().all()
+                .extract().response();
+    }
 }
