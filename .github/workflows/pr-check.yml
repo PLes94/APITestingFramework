@@ -25,7 +25,9 @@ jobs:
           gradle-version: 7.3
 
       - name: Build test framework jar
-        run: gradlew build -x test
+        run: |
+          chmod +x ./gradlew
+          gradlew build -x test
 
       - name: Run tests
         run: java -jar build/libs/APITestingFramework.jar classpath:features --threads 8 --order random
