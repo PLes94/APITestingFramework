@@ -6,9 +6,9 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class ReqresMethods {
+public class ReqresUsersMethods {
 
-    private static final String BASIC_URL = "https://reqres.in/api/";
+    private static final String BASIC_URL = "https://reqres.in/api/users/";
 
     public static Response getListOfUsers(int pageNumber) {
         return RestAssured.given()
@@ -17,7 +17,7 @@ public class ReqresMethods {
                 .contentType("application/json")
                 .when()
                 .relaxedHTTPSValidation()
-                .get(BASIC_URL + "users")
+                .get(BASIC_URL)
                 .then()
                 .log().all()
                 .extract().response();

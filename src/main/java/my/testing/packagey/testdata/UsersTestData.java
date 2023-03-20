@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class UsersTestData implements TestData {
     private Integer pageNumber;
+    private Integer userId;
 }
