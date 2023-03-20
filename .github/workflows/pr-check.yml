@@ -3,7 +3,7 @@ name: PR check
 on: [ pull_request ]
 
 jobs:
-  build:
+  pr:
     runs-on: ubuntu-latest
 
     steps:
