@@ -3,7 +3,7 @@ name: PR check
 on: [ pull_request ]
 
 jobs:
-  pr:
+  pr-check:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,9 +25,7 @@ jobs:
           gradle-version: 7.3
 
       - name: Build test framework jar
-        run: |
-          chmod +x ./gradlew
-          gradlew build -x test
+        run: ./gradlew build -x test
 
       - name: Run tests
         run: java -jar build/libs/APITestingFramework.jar classpath:features --threads 8 --order random
