@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'my.testing.packagey'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -27,4 +27,23 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jar {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes "Main-Class": "my.testing.packagey.testrunner.TestRunner"
+    }
+    archiveFileName = 'APITestingFramework.jar'
+    from('./src/main/resources') {
+        include 'META-INF/services/io.cucumber.core.backend.ObjectFactory'
+    }
+
+    exclude 'META-INF/*.SF'
+    exclude 'META-INF/*.RSA'
+    exclude 'META-INF/*.DSA'
+}
+
+tasks.register('regressionTests', Test) {
+    include '**/TestRunner.class'
 }
