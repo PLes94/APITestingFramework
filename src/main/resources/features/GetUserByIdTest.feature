@@ -11,7 +11,7 @@ Feature: Reqres API - Get user by id
       | 1          |
       | 5          |
 
-  Scenario Outline: I cannot get a non existing user by id
+  Scenario Outline: I cannot get a nonexistent user by id
     Given I set user id to be searched to <pageNumber>
     When I send request to get a user by a specified id
     Then I should get "404" in response
