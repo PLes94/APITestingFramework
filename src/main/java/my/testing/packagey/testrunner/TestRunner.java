@@ -13,16 +13,14 @@ public final class TestRunner {
             "--plugin", "json:" + CUCUMBER_JSON_RESULTS,
             "--plugin", "junit:" + CUCUMBER_JUNIT_RESULTS,
             "--plugin", "pretty",
-            "--monochrome",
-            // TODO: check why sending args in main() method does not work
-            "classpath:features"
+            "--monochrome"
     };
 
     public static void main(String[] args) {
-//        if (args.length == 0) {
-//            System.out.println("You have to pass arguments how to run the jar file.");
-//            return;
-//        }
+        if (args.length == 0) {
+            System.out.println("You have to pass arguments how to run the jar file.");
+            return;
+        }
 
         String[] cucumberOptions = Stream.of(defaultOptions, args).flatMap(Stream::of).toArray(String[]::new);
         Main.run(cucumberOptions);

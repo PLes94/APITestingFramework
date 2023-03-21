@@ -24,7 +24,6 @@ dependencies {
 }
 
 jar {
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes "Main-Class": "my.testing.packagey.testrunner.TestRunner"
     }
@@ -32,6 +31,10 @@ jar {
     from('./src/main/resources') {
         include 'META-INF/services/io.cucumber.core.backend.ObjectFactory'
     }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(configurations.runtimeClasspath.collect {
+        it.isDirectory() ? it : zipTree(it)
+    })
 
     exclude 'META-INF/*.SF'
     exclude 'META-INF/*.RSA'
