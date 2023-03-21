@@ -28,4 +28,5 @@ jobs:
         run: ./gradlew build -x test
 
       - name: Run tests
-        run: java -jar build/libs/APITestingFramework.jar classpath:features
+#        run: java -jar build/libs/APITestingFramework.jar classpath:features
+        run: ./gradlew -q run

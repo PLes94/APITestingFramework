@@ -1,9 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
 }
-
-group 'my.testing.packagey'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -43,3 +41,5 @@ jar {
 tasks.register('regressionTests', Test) {
     include '**/TestRunner.class'
 }
+
+mainClassName = 'my.testing.packagey.testrunner.TestRunner'
